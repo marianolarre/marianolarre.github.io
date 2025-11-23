@@ -1,0 +1,167 @@
+:root {
+  --bg: #1e1f24;
+  --panel: #2a2b31;
+  --text: #ddd;
+  --accent: #2f80ed;
+  --accent2: #3b8cff;
+  --error: #ff5555;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.file-label input {
+  margin-left: 6px;
+}
+
+fieldset {
+  border: 1px solid #444;
+  background: var(--panel);
+  border-radius: 6px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+legend {
+  color: var(--accent2);
+  font-weight: bold;
+}
+
+input[type="number"],
+input[type="file"] {
+  background: #333;
+  color: var(--text);
+  border: 1px solid #555;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.main-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+button.primary {
+  background: var(--accent);
+  color: white;
+  font-weight: bold;
+}
+
+button.primary:hover {
+  background: var(--accent2);
+}
+
+button.secondary {
+  background: #444;
+  color: white;
+  opacity: 0.7;
+}
+
+button.secondary:not([disabled]):hover {
+  opacity: 1;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.toggle-btn {
+  display: block;
+  margin: 0 auto 10px;
+  background: #333;
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+}
+
+.toggle-btn:hover {
+  background: #444;
+}
+
+.advanced.hidden {
+  display: none;
+}
+
+.progress-bar-bg {
+  background: #333;
+  border-radius: 8px;
+  height: 14px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: var(--accent2);
+  height: 100%;
+  width: 0%;
+  transition: width 0.2s ease;
+}
+
+#progressText {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+#thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.thumb {
+  background: var(--panel);
+  border-radius: 6px;
+  padding: 6px;
+  width: 200px;
+}
+
+.thumb div {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.thumb canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.error {
+  color: var(--error);
+}

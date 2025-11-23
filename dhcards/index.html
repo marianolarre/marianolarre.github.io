@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Daggerheart Card Sheet Extractor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Daggerheart Card Sheet Extractor</h1>
+
+  <p>This works 100% locally, the PDF is not uploaded to any server. Do not distribute your official PDFs.</p>
+  <p>This tool will automatically extract the images from your owned PDF for use in the Daggerheart [Unofficial] tabletop simulator addon</p>
+
+  <div class="controls">
+    <label class="file-label">
+      PDF file:
+      <input id="fileInput" type="file" accept="application/pdf">
+    </label>
+  </div>
+
+  <div class="main-buttons">
+    <button id="extractBtn" class="primary">Extract Sheets</button>
+    <button id="downloadAll" class="primary" disabled>Download ZIP</button>
+  </div>
+
+  <div id="progressContainer">
+    <div id="progressText"></div>
+    <div class="progress-bar-bg"><div id="progressBar" class="progress-bar"></div></div>
+  </div>
+
+  <br>
+  <button id="toggleAdvanced" class="toggle-btn">Show Advanced Options ▾</button>
+
+  <div id="advancedPanel" class="advanced hidden">
+    <p>All settings are set by default to correctly extract the cards from the official Daggerheart Core Rule Book PDF into sheets that are ready for the Daggerheart [Unofficial] tabletop simulator workshop addon. Don't change these values unless you know what you are doing.</p>
+
+    <div class="controls">
+      <label>From page: <input id="startPage" type="number" min="1" value="386"></label>
+      <label>To page: <input id="endPage" type="number" min="1" value="415"></label>
+    </div>
+
+    <fieldset>
+      <legend>Crop Padding (px)</legend>
+      <label>Top: <input id="padTop" type="number" value="37"></label>
+      <label>Left: <input id="padLeft" type="number" value="74"></label>
+      <label>Right: <input id="padRight" type="number" value="74"></label>
+      <label>Bottom: <input id="padBottom" type="number" value="37"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Grid Options</legend>
+      <label>Cards per page (cols × rows):
+        <input id="pageCols" type="number" value="3"> × <input id="pageRows" type="number" value="3">
+      </label>
+      <br>
+      <label>Cards per sheet (cols × rows):
+        <input id="sheetCols" type="number" value="10"> × <input id="sheetRows" type="number" value="7">
+      </label>
+      <br>
+      <label><input id="fillLastBlack" type="checkbox" checked> Leave last spot black</label>
+      <label><input id="topDownScan" type="checkbox" checked> Scan top→bottom first</label>
+    </fieldset>
+  </div>
+
+  <div id="thumbnails"></div>
+
+  <script src="pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "pdf.worker.min.js";
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.0/dist/jszip.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
