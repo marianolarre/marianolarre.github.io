@@ -1,8 +1,8 @@
 setFunction({
   name: "aspect",
-  type: "src",
+  type: "coord",
   inputs: [
-    {name:"asp", type:"float", default:1}
+    {name:"asp", type:"float", default:window.innerHeight/window.innerWidth}
   ],
   glsl: `
   vec2 xy = _st - vec2(0.5, 0.5);
