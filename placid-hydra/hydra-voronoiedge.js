@@ -27,7 +27,7 @@ setFunction({
         dot(p,vec2(269.5,183.3))
       ))*43758.5453);
 
-      point = 0.5 + 0.45*sin(time*speed + 6.2831*point);
+      point = 0.5 + 0.4*sin(time*speed + 6.2831*point);
 
       vec2 diff = neighbor + point - f_st;
       float dist = length(diff);
