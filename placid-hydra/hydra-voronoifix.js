@@ -7,7 +7,7 @@ setFunction({
     {name:"blending", type:"float", default:0.1}
   ],
   glsl: `
-vec3 color = vec3(.0);
+  vec3 color = vec3(.0);
   // Scale
   _st *= scale;
   // Tile the space
@@ -20,7 +20,7 @@ vec3 color = vec3(.0);
       vec2 neighbor = vec2(float(i), float(j));
       vec2 p = i_st + neighbor;
       vec2 point = fract(sin(vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)))) * 43758.5453);
-      point = 0.5 + 0.5 * sin(iTime * speed + 6.2831 * point);
+      point = 0.5 + 0.5 * sin(time * speed + 6.2831 * point);
       vec2 diff = neighbor + point - f_st;
       float dist = length(diff);
       if(dist < m_dist) {
