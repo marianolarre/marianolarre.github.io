@@ -8,6 +8,6 @@ setFunction({
   glsl: `
   _st.x += time * x;
   _st.y += time * y;
-  return fract(_st);
+  return _st;
   `
 })
