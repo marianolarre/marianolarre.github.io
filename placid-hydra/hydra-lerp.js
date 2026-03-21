@@ -1,14 +1,16 @@
 setFunction({
   name: "lerp",
-  type: "color",
+  type: "combine",
   inputs: [
-    { name: "low", type: "float", default: 0.0 },
-    { name: "high", type: "float", default: 1.0 }
+    { name: "lowTex", type: "sampler2D" },
+    { name: "highTex", type: "sampler2D" }
   ],
   glsl: `
-  vec4 c = _c0;
-  float t = dot(c.rgb, vec3(0.299, 0.587, 0.114));
-  float v = mix(low, high, t);
-  return vec4(vec3(v), c.a);
+  float t = dot(_c0.rgb, vec3(0.299, 0.587, 0.114));
+
+  vec4 low = texture2D(lowTex, _st);
+  vec4 high = texture2D(highTex, _st);
+
+  return mix(low, high, t);
   `
 })
