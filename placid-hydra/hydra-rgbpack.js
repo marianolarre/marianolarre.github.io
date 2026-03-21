@@ -1,6 +1,6 @@
 setFunction({
   name: "rgbpack",
-  type: "src",
+  type: "combine",
   inputs: [
     { name: "texR", type: "sampler2D" },
     { name: "texG", type: "sampler2D" },
