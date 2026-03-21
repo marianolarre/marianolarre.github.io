@@ -2,11 +2,10 @@ setFunction({
   name: "rgpack",
   type: "combine",
   inputs: [
-    { name: "texR", type: "sampler2D" },
     { name: "texG", type: "sampler2D" }
   ],
   glsl: `
-  vec4 rS = texture2D(texR, _st);
+  vec4 rS = _c0;
   vec4 gS = texture2D(texG, _st);
 
   float r = dot(rS.rgb, vec3(0.299, 0.587, 0.114));
