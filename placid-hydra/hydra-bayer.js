@@ -1,5 +1,5 @@
 setFunction({
-  name: "bayer",
+  name: "bayer4",
   type: "src",
   inputs: [
     { name: "size", type: "float", default: 8.0 }
@@ -17,12 +17,16 @@ setFunction({
   float y0 = mod(y, 2.0);
   float y1 = floor(y / 2.0);
 
-  // Bayer index (bit interleave pattern)
+  // XOR via abs difference (since bits are 0 or 1)
+  float x0y0 = abs(x0 - y0);
+  float x1y1 = abs(x1 - y1);
+
+  // correct Bayer index
   float index =
-      x1 * 8.0 +
-      y1 * 4.0 +
-      x0 * 2.0 +
-      y0 * 1.0;
+      x1y1 * 8.0 +
+      y1   * 4.0 +
+      x0y0 * 2.0 +
+      y0   * 1.0;
 
   float v = index / 16.0;
 
