@@ -3,7 +3,7 @@ setFunction({
   type: "src",
   inputs: [
     { name: "size", type: "float", default: 4.0 },
-    { name: "amount", type: "float", default: 1.0 }
+    { name: "amount", type: "float", default: 0.25 }
   ],
   glsl: `
   vec2 st = floor(_st * size);
