@@ -11,18 +11,23 @@ setFunction({
   float x = p.x;
   float y = p.y;
 
-  // split into bits
-  float x0 = mod(x, 2.0);
-  float y0 = mod(y, 2.0);
-  float x1 = floor(x / 2.0);
-  float y1 = floor(y / 2.0);
+  // helper masks (0 or 1)
+  float x0 = 1.0 - step(1.0, x);                // x == 0
+  float x1 = step(1.0, x) - step(2.0, x);       // x == 1
+  float x2 = step(2.0, x) - step(3.0, x);       // x == 2
+  float x3 = step(3.0, x);                      // x == 3
 
-  // B2 function: 2*y + (x XOR y)
-  float b2_low  = 2.0 * y0 + abs(x0 - y0);
-  float b2_high = 2.0 * y1 + abs(x1 - y1);
+  float y0 = 1.0 - step(1.0, y);
+  float y1 = step(1.0, y) - step(2.0, y);
+  float y2 = step(2.0, y) - step(3.0, y);
+  float y3 = step(3.0, y);
 
-  // recursive composition
-  float index = 4.0 * b2_high + b2_low;
+  // exact matrix reconstruction
+  float index =
+      y0*(x0*0.0  + x1*8.0  + x2*2.0  + x3*10.0) +
+      y1*(x0*12.0 + x1*4.0  + x2*14.0 + x3*6.0 ) +
+      y2*(x0*3.0  + x1*11.0 + x2*1.0  + x3*9.0 ) +
+      y3*(x0*15.0 + x1*7.0  + x2*13.0 + x3*5.0 );
 
   float v = index / 16.0;
 
