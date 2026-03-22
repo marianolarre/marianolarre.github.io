@@ -1,5 +1,5 @@
 setFunction({
-  name: "bayer4",
+  name: "bayer",
   type: "src",
   inputs: [
     { name: "size", type: "float", default: 8.0 }
@@ -11,22 +11,18 @@ setFunction({
   float x = p.x;
   float y = p.y;
 
-  // extract bits
+  // split into bits
   float x0 = mod(x, 2.0);
-  float x1 = floor(x / 2.0);
   float y0 = mod(y, 2.0);
+  float x1 = floor(x / 2.0);
   float y1 = floor(y / 2.0);
 
-  // XOR via abs difference (since bits are 0 or 1)
-  float x0y0 = abs(x0 - y0);
-  float x1y1 = abs(x1 - y1);
+  // B2 function: 2*y + (x XOR y)
+  float b2_low  = 2.0 * y0 + abs(x0 - y0);
+  float b2_high = 2.0 * y1 + abs(x1 - y1);
 
-  // correct Bayer index
-  float index =
-      x1y1 * 8.0 +
-      y1   * 4.0 +
-      x0y0 * 2.0 +
-      y0   * 1.0;
+  // recursive composition
+  float index = 4.0 * b2_high + b2_low;
 
   float v = index / 16.0;
 
