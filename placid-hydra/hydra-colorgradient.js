@@ -12,10 +12,10 @@ setFunction({
   glsl: `
   vec4 c = _c0;
   float t = dot(c.rgb, vec3(0.299, 0.587, 0.114));
-  t = clamp(t, 0.0, 1.0);
+  t = clamp(t, 0.001, 0.999);
   vec3 colA = vec3(rA, gA, bA);
   vec3 colB = vec3(rB, gB, bB);
-  vec3 result = mix(colA, colB, t);
+  vec3 result = mix(colA, colB, clamp(t, 0.0, 1.0));
   return vec4(result, c.a);
   `
 })
