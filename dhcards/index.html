@@ -35,10 +35,19 @@
   <div id="advancedPanel" class="advanced hidden">
     <p>All settings are set by default to correctly extract the cards from the official Daggerheart Core Rule Book PDF into sheets that are ready for the Daggerheart [Unofficial] tabletop simulator workshop addon. Don't change these values unless you know what you are doing.</p>
 
-    <div class="controls">
-      <label>From page: <input id="startPage" type="number" min="1" value="386"></label>
-      <label>To page: <input id="endPage" type="number" min="1" value="415"></label>
-    </div>
+    <fieldset>
+      <legend>Presets</legend>
+      <div class="controls">
+        <button id="preset2025" class="secondary">2025</button>
+        <button id="preset2026" class="secondary">2026</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Pages</legend>
+      <label>From page: <input id="startPage" type="number" min="1" value="394"></label>
+      <label>To page: <input id="endPage" type="number" min="1" value="423"></label>
+    </fieldset>
 
     <fieldset>
       <legend>Crop Padding (px)</legend>

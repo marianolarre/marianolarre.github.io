@@ -27,6 +27,25 @@ const topDownScan = document.getElementById('topDownScan');
 
 let lastSheets = [];
 
+const preset2025 = document.getElementById('preset2025');
+const preset2026 = document.getElementById('preset2026');
+
+if (preset2025) {
+  preset2025.addEventListener('click', () => {
+    startPageInput.value = 386;
+    endPageInput.value = 415;
+    alert("Pages set for the 2025 edition of the PDF")
+  });
+}
+
+if (preset2026) {
+  preset2026.addEventListener('click', () => {
+    startPageInput.value = 394;
+    endPageInput.value = 423;
+    alert("Pages set for the 2026 edition of the PDF")
+  });
+}
+
 toggleAdvanced.addEventListener('click', () => {
   advancedPanel.classList.toggle('hidden');
   toggleAdvanced.textContent = advancedPanel.classList.contains('hidden')
