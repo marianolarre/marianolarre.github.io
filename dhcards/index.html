@@ -11,7 +11,7 @@
 
   <p>This works 100% locally, the PDF is not uploaded to any server. Do not distribute your official PDFs.</p>
   <p>This tool will automatically extract the images from your owned PDF for use in the Daggerheart [Unofficial] tabletop simulator addon</p>
-  <p>To check if the export is correct, check that you get 4 sheets, and the last sheets starts with Troubador, and ends with a row of Halfling, Katari and Simiah.</p>
+  <p>To check if the export is correct, check that you get 4 sheets, and the last sheets starts with Troubador, and ends with a row of Halfling, Katari and Simiah. In the case that this doesn't export correctly, look into the Advanced Options and change the Page settings to match your PDF.</p>
 
   <div class="controls">
     <label class="file-label">
@@ -34,7 +34,7 @@
   <button id="toggleAdvanced" class="toggle-btn">Show Advanced Options ▾</button>
 
   <div id="advancedPanel" class="advanced hidden">
-    <p>All settings are set by default to correctly extract the cards from the official Daggerheart Core Rule Book PDF into sheets that are ready for the Daggerheart [Unofficial] tabletop simulator workshop addon. Don't change these values unless you know what you are doing.</p>
+    <p>These settings are here in case the PDF changes or your version doesn't have the expected page counts or distribution. If the export comes out wrong, it might be that the pages with the card art don't match your PDF. Look at the page number where the cards with art begin and end, and change the "From page" and "To page" values, then try exporting again.</p>
 
     <fieldset>
       <legend>Presets</legend>
