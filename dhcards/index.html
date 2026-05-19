@@ -11,14 +11,20 @@
 
   <p>This works 100% locally, the PDF is not uploaded to any server. Do not distribute your official PDFs.</p>
   <p>This tool will automatically extract the images from your owned PDF for use in the Daggerheart [Unofficial] tabletop simulator addon</p>
-  <p>To check if the export is correct, check that you get 4 sheets, and the last sheets starts with Troubador, and ends with a row of Halfling, Katari and Simiah. In the case that this doesn't export correctly, look into the Advanced Options and change the Page settings to match your PDF.</p>
-
+  
   <div class="controls">
     <label class="file-label">
       PDF file:
       <input id="fileInput" type="file" accept="application/pdf">
     </label>
   </div>
+
+  <fieldset>
+    <legend>Pages</legend>
+    <p><b>The range of pages in your PDF that contain the cards.</b> <i>You should get 4 sheets, and the last sheets should start with Troubador and end with a row of Halfling, Katari and Simiah. If this isn't the case, change the From and To page range to match your PDF.</i></p>
+    <label>From page: <input id="startPage" type="number" min="1" value="394"></label>
+    <label>To page: <input id="endPage" type="number" min="1" value="423"></label>
+  </fieldset>
 
   <div class="main-buttons">
     <button id="extractBtn" class="primary">Extract Sheets</button>
@@ -34,20 +40,14 @@
   <button id="toggleAdvanced" class="toggle-btn">Show Advanced Options ▾</button>
 
   <div id="advancedPanel" class="advanced hidden">
-    <p>These settings are here in case the PDF changes or your version doesn't have the expected page counts or distribution. If the export comes out wrong, it might be that the pages with the card art don't match your PDF. Look at the page number where the cards with art begin and end, and change the "From page" and "To page" values, to let the program know where in your PDF to find the card art. Then try extracting again.</p>
+    <p>These settings are adjusted by default to correctly find the position and distribution of the cards in the PDF. Only change them if the export is missaligned and setting the From and To page wasn't enough to fix the issue.</p>
 
     <fieldset>
       <legend>Presets</legend>
       <div class="controls">
-        <button id="preset2025" class="secondary">2025</button>
-        <button id="preset2026" class="secondary">2026</button>
+        <button id="preset2025" class="secondary">Original page range</button>
+        <button id="preset2026" class="secondary">Alternate page range</button>
       </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>Pages</legend>
-      <label>From page: <input id="startPage" type="number" min="1" value="394"></label>
-      <label>To page: <input id="endPage" type="number" min="1" value="423"></label>
     </fieldset>
 
     <fieldset>
