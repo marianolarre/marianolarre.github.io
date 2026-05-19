@@ -165,3 +165,7 @@ button:disabled {
 .error {
   color: var(--error);
 }
+
+a {
+  color: white;
+}
