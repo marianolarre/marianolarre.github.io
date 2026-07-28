@@ -29,12 +29,13 @@ let lastSheets = [];
 
 const preset2025 = document.getElementById('preset2025');
 const preset2026 = document.getElementById('preset2026');
+const presethopeandfear = document.getElementById('presethopeandfear');
 
 if (preset2025) {
   preset2025.addEventListener('click', () => {
     startPageInput.value = 386;
     endPageInput.value = 415;
-    alert("Pages set for the 2025 edition of the PDF")
+    alert("Pages set for the 2025 edition of the core PDF")
   });
 }
 
@@ -42,7 +43,15 @@ if (preset2026) {
   preset2026.addEventListener('click', () => {
     startPageInput.value = 394;
     endPageInput.value = 423;
-    alert("Pages set for the 2026 edition of the PDF")
+    alert("Pages set for the 2026 edition of the core PDF")
+  });
+}
+
+if (presethopeandfear) {
+  presethopeandfear.addEventListener('click', () => {
+    startPageInput.value = 198;
+    endPageInput.value = 204;
+    alert("Pages set for the Hope and Fear pdf")
   });
 }
 

@@ -21,9 +21,19 @@
 
   <fieldset>
     <legend>Pages</legend>
-    <p><b>The range of pages in your PDF that contain the cards.</b> <i>You should get 4 sheets, and the last sheets should start with Troubador and end with a row of Halfling, Katari and Simiah. If this isn't the case, change the From and To page range to match your PDF.</i></p>
+    <p><b>The range of pages in your PDF that contain the cards.</b> <i>For Core, you should get 4 sheets, and the last sheets should start with Troubador and end with a row of Halfling, Katari and Simiah. For Hope and Fear, you should get a single sheet that starts with Blighting Strike and ends with Werewolf. If this isn't the case, choose a preset below, or manually change the From and To page range to match your PDF.</i></p>
     <label>From page: <input id="startPage" type="number" min="1" value="394"></label>
     <label>To page: <input id="endPage" type="number" min="1" value="423"></label>
+
+    <br><br>
+    <fieldset>
+      <legend>Presets</legend>
+      <div class="controls">
+        <button id="preset2025" class="secondary">2025 Core</button>
+        <button id="preset2026" class="secondary">2026 Core</button>
+        <button id="presethopeandfear" class="secondary">Hope and Fear</button>
+      </div>
+    </fieldset>
   </fieldset>
 
   <div class="main-buttons">
@@ -41,14 +51,6 @@
 
   <div id="advancedPanel" class="advanced hidden">
     <p>These settings are adjusted by default to correctly find the position and distribution of the cards in the PDF. Only change them if the export is missaligned and setting the From and To page wasn't enough to fix the issue.</p>
-
-    <fieldset>
-      <legend>Presets</legend>
-      <div class="controls">
-        <button id="preset2025" class="secondary">Original page range</button>
-        <button id="preset2026" class="secondary">Alternate page range</button>
-      </div>
-    </fieldset>
 
     <fieldset>
       <legend>Crop Padding (px)</legend>
