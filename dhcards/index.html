@@ -36,6 +36,17 @@
     </fieldset>
   </fieldset>
 
+  <fieldset>
+    <legend>Quality</legend>
+    <p><i>Use low quality for performance and small file sizes. High quality is crisp. Ultra High quality might be overkill.</i></p>
+    <div class="controls">
+      <label>Quality: <input id="quality" type="number" min="1" max="3" value="2"></label>
+      <button id="lowquality" class="secondary">Low Quality</button>
+      <button id="defaultquality" class="secondary">High Quality (default)</button>
+      <button id="highquality" class="secondary">Ultra High Quality</button>
+    </div>
+  </fieldset>
+
   <div class="main-buttons">
     <button id="extractBtn" class="primary">Extract Sheets</button>
     <button id="downloadAll" class="primary" disabled>Download ZIP</button>

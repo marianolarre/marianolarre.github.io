@@ -31,6 +31,11 @@ const preset2025 = document.getElementById('preset2025');
 const preset2026 = document.getElementById('preset2026');
 const presethopeandfear = document.getElementById('presethopeandfear');
 
+const qualityInput = document.getElementById('quality');
+const lowquality = document.getElementById('lowquality');
+const defaultquality = document.getElementById('defaultquality');
+const highquality = document.getElementById('highquality');
+
 if (preset2025) {
   preset2025.addEventListener('click', () => {
     startPageInput.value = 386;
@@ -52,6 +57,27 @@ if (presethopeandfear) {
     startPageInput.value = 198;
     endPageInput.value = 204;
     alert("Pages set for the Hope and Fear pdf")
+  });
+}
+
+if (lowquality) {
+  lowquality.addEventListener('click', () => {
+    qualityInput.value = 1;
+    alert("Low quality set");
+  });
+}
+
+if (defaultquality) {
+  defaultquality.addEventListener('click', () => {
+    qualityInput.value = 2;
+    alert("Default quality set");
+  });
+}
+
+if (highquality) {
+  highquality.addEventListener('click', () => {
+    qualityInput.value = 3;
+    alert("High quality set");
   });
 }
 
@@ -85,7 +111,7 @@ function readFileAsArrayBuffer(file) {
 
 async function renderPage(pdf, pageNum, scale = 2) {
   const page = await pdf.getPage(pageNum);
-  const viewport = page.getViewport({ scale });
+  const viewport = page.getViewport({ scale: scale * qualityInput.value });
   const canvas = document.createElement('canvas');
   canvas.width = viewport.width;
   canvas.height = viewport.height;
