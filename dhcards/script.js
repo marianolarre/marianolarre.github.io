@@ -208,7 +208,13 @@ extractBtn.addEventListener('click', async () => {
       const pct = ((p - start) / (end - start + 1)) * 60 + 10;
       setProgress(`Rendering page ${p}...`, pct);
       const pageCanvas = await renderPage(pdf, p, 2);
-      const cropped = cropCanvas(pageCanvas, pad.left, pad.top, pad.right, pad.bottom);
+      const cropped = cropCanvas(
+        pageCanvas,
+        pad.left * qualityInput.value,
+        pad.top * qualityInput.value,
+        pad.right * qualityInput.value,
+        pad.bottom * qualityInput.value
+      );
       const cards = splitCanvas(cropped, pCols, pRows, topDownScan.checked);
       allCards.push(...cards);
     }
